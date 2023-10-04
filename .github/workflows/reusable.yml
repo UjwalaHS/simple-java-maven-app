@@ -1,0 +1,16 @@
+name: Reusable Workflow
+
+on:
+  workflow_run:
+    workflows: ["Main Pipeline"]
+    types:
+      - completed
+      
+jobs:
+  print-variable:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Run Custom Action
+       uses: nihar30/simple-java-maven-app/.github/actions/print_env_var@master
+       with:
+         variable-to-print: ${{ github.event.workflow_run.conclusions."Main Pipeline".outputs.print-vars }}
