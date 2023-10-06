@@ -1,13 +1,9 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+ 
 
-name: Java CI with Maven
-
+name: Maven Package
 on:
   push:
     branches: [ "master" ]
@@ -17,21 +13,16 @@ on:
 jobs:
   build:
 
+ 
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
+ 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - uses: UjwalaHS/simple-java-maven-app/.github/workflows/reusable.yml@master
 
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2.2.3
-      with:
-            name: Jars
-            path: /home/runner/work/java-junit-template-project/java-junit-template-project/lib/org.jacoco.ant-0.8.7.jar!/org/jacoco/ant/antlib.xml
+ 
+    #steps:
+   # - uses: babitajoshi299/simple-java-maven-app/.github/actions/print_env_var/action.yml@master
