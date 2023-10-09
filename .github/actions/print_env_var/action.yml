@@ -1,11 +1,8 @@
-name: Print Variable
-
-inputs: 
-  variable-to-print: 
-    description: The variable you want to print
+inputs:
+  firstNameStudent:
+    description: 'First name of student'
+    required: false
+    default: '1'
+  studentGrade:
+    description: 'Grade of the student'
     required: true
-    default: '${{ github.sha }}'
-    
-runs: 
-using: shell
-command: 'echo "${{ inputs.variable-to-print }}"'
