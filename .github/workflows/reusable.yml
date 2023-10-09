@@ -45,4 +45,5 @@ jobs:
             name: Jars
             path: /home/runner/work/java-junit-template-project/java-junit-template-project/lib/org.jacoco.ant-0.8.7.jar!/org/jacoco/ant/antlib.xml
 
+    - name: action is being called here
       uses: UjwalaHS/simple-java-maven-app/.github/actions/print_env_var/action.yml@master
