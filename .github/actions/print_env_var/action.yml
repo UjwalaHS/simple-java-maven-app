@@ -1,8 +1,7 @@
-inputs:
-  firstNameStudent:
-    description: 'First name of student'
-    required: false
-    default: '1'
-  studentGrade:
-    description: 'Grade of the student'
-    required: true
+hello-world (UjwalaHS/simple-java-maven-app/.github/actions/print_env_var/action.yml)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
